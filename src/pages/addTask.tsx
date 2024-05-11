@@ -10,7 +10,7 @@ const AddTask = () => {
   const [input, setInput] = useState('')
   const dispatch = useDispatch()
 
-  const addTodoHandler = (e) => {
+  const addTodoHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     if(input.trim() == '') {
       alert("Please enter valid todo item")

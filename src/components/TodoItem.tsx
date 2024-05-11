@@ -1,7 +1,11 @@
 import { toggleTodo, deleteTodo } from '../store/todos'
 import { useDispatch } from 'react-redux'
-
-const TodoItem = ({ todo }) => {
+interface TodoItem {
+  id: string;
+  text: string;
+  isCompleted: boolean
+}
+const TodoItem = ({ todo }: { todo: TodoItem }) => {
   const dispatch = useDispatch()
   return (
     <>
