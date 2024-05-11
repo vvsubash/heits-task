@@ -2,10 +2,10 @@ import NavBar from '../components/NavBar'
 import TodoItem from '../components/TodoItem.tsx'
 import { Link } from 'react-router-dom'
 
-const tasks = ['Bring Milk', 'Go to grocery store']
 import { useSelector } from 'react-redux'
 const Index = () => {
-  const todos = useSelector((state) => state.todos)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const todos = useSelector((state:any) => state.todos)
   return (
     <div className="">
       <NavBar />
@@ -14,7 +14,7 @@ const Index = () => {
           <div className="mb-4">
             <h1 className="text-grey-darkest mb-6">Todo List</h1>
             {!todos.length && <Link to="add-task" className="cursor-pointer">There are no todos <span className="underline font-semibold">Add Todo</span></Link>}
-            {todos.map((x) => (
+            {todos.map((x:TodoItem) => (
               <TodoItem todo={x} key={x.id} />
             ))}
           </div>
